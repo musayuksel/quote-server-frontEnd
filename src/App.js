@@ -61,7 +61,7 @@ function App() {
           New quote
         </button>
       </blockquote>
-      <SearchQuote />
+      <SearchQuote color={color} />
     </section>
   );
 }

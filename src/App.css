@@ -32,7 +32,8 @@ button:focus {
 .searchButton:hover {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 7px 29px 0px;
 }
-.searchForm {
+.searchForm,
+.quoteList {
   margin: auto;
   width: 80%;
 }
@@ -44,4 +45,14 @@ button:focus {
 }
 .searchForm input:focus {
   outline: none;
+}
+.quoteList {
+  list-style-type: none;
+  padding-left: 0;
+}
+.quoteList li {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 10px;
 }
