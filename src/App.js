@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import fetchData from "./utils/fetchData";
 import pickFromArray from "./utils/pickFromArray";
 import "./App.css";
 
 let color = "#fd7e14";
 function App() {
-  console.log("PAGE RENDER");
   const colorTemplate = [
     "#00ADB5",
     "#F08A5D",
@@ -18,14 +17,12 @@ function App() {
     "#FF7600",
   ];
 
-  const [searchValue, setSearchValue] = useState("");
   const [quote, setQuote] = useState({
     quote: "You miss 100% of the shots you don’t take.",
     author: "Wayne Gretzky",
   });
 
   document.body.style.background = color;
-  console.log(quote);
   function newQuoteHandler(event) {
     fetchData("/quotes/random").then((newQuote) => {
       color = pickFromArray(colorTemplate);
@@ -34,32 +31,9 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <section className="App">
       <blockquote className="blockquote text-center">
-        <form className="checkBox" onSubmit={submitHandle}>
-          <input
-            type="text"
-            name="term"
-            value={searchValue}
-            placeholder="seach quote"
-            onChange={(event) =>
-              setSearchValue(event.target.value)
-            }
-          />
-          <button
-            type="submit"
-            style={{
-              backgroundColor: `${color}`,
-              color: "white",
-            }}
-            id="newQuote"
-          >
-            Search quote
-          </button>
-        </form>
-
         <p className="mb-0">
-          {" "}
           <span
             style={{ fontSize: "136px", color: `${color}` }}
           >
@@ -69,13 +43,13 @@ function App() {
             {quote.quote}
           </span>
         </p>
-        <footer
+        <article
           style={{ color: `${color}` }}
           id="author"
           className="blockquote-footer"
         >
           {quote.author}
-        </footer>
+        </article>
         <button
           style={{
             backgroundColor: `${color}`,
@@ -86,7 +60,7 @@ function App() {
           New quote
         </button>
       </blockquote>
-    </div>
+    </section>
   );
 }
 
