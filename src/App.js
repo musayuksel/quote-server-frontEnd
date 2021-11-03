@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import fetchData from "./utils/fetchData";
 import pickFromArray from "./utils/pickFromArray";
 import "./App.css";
+import SearchQuote from "./components/SearchQuote";
 
-let color = "#fd7e14";
 function App() {
   const colorTemplate = [
     "#00ADB5",
@@ -16,7 +16,7 @@ function App() {
     "#716F81",
     "#FF7600",
   ];
-
+  const [color, setColor] = useState("#fd7e14");
   const [quote, setQuote] = useState({
     quote: "You miss 100% of the shots you don’t take.",
     author: "Wayne Gretzky",
@@ -25,7 +25,8 @@ function App() {
   document.body.style.background = color;
   function newQuoteHandler(event) {
     fetchData("/quotes/random").then((newQuote) => {
-      color = pickFromArray(colorTemplate);
+      // color = pickFromArray(colorTemplate);
+      setColor(pickFromArray(colorTemplate));
       setQuote(newQuote);
     });
   }
@@ -33,7 +34,7 @@ function App() {
   return (
     <section className="App">
       <blockquote className="blockquote text-center">
-        <p className="mb-0">
+        <p>
           <span
             style={{ fontSize: "136px", color: `${color}` }}
           >
@@ -60,6 +61,7 @@ function App() {
           New quote
         </button>
       </blockquote>
+      <SearchQuote />
     </section>
   );
 }

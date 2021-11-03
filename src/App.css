@@ -3,7 +3,7 @@ blockquote {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  margin: 20% auto 0;
+  margin: 1rem auto;
   padding: 1rem;
   position: relative; /*for checkbox*/
   width: 80vw;
@@ -26,15 +26,22 @@ button:hover {
 button:focus {
   outline: none;
 }
-.quoteSearch {
-  border-radius: 50rem;
-  position: absolute;
-  right: 1%;
-
-  /* padding: 1rem; */
-  /* background-color: #0ff; */
-  /* border: 1px solid red; */
+.searchButton {
+  background-color: #fff;
 }
-.quoteSearch button {
-  margin-left: 1rem;
+.searchButton:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 7px 29px 0px;
+}
+.searchForm {
+  margin: auto;
+  width: 80%;
+}
+.searchForm input {
+  border: none;
+  background-color: #fff;
+  margin-right: 1rem;
+  padding: 5px;
+}
+.searchForm input:focus {
+  outline: none;
 }
