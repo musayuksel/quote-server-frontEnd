@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import fetchData from "./utils/fetchData";
 import pickFromArray from "./utils/pickFromArray";
 import "./App.css";
@@ -30,19 +30,16 @@ function App() {
       setQuote(newQuote);
     });
   }
+  useEffect(() => {
+    newQuoteHandler();
+  }, []);
 
   return (
     <section className="App">
       <blockquote className="blockquote text-center">
         <p>
-          <span
-            style={{ fontSize: "136px", color: `${color}` }}
-          >
-            ,,
-          </span>
-          <span style={{ color: `${color}` }}>
-            {quote.quote}
-          </span>
+          <span style={{ fontSize: "136px", color: `${color}` }}>,,</span>
+          <span style={{ color: `${color}` }}>{quote.quote}</span>
         </p>
         <article
           style={{ color: `${color}` }}
